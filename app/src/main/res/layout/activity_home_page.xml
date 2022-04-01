@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:background="@drawable/circle_shape"
+    tools:context=".HomePage">
+
+    <TextView
+        android:id="@+id/sampleLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Pain Healer"
+        android:textSize="40dp"
+        android:textColor="#2A96CA"
+        android:shadowColor="#303D8A"
+        android:shadowRadius="1"
+        android:shadowDx="0"
+        android:shadowDy="4"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/pic1"
+        android:layout_below="@id/sampleLoginText"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/iconpic_1"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+    <ImageView
+        android:id="@+id/pic2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/pic1"
+        android:src="@drawable/iconpic"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+    <ImageView
+        android:id="@+id/pic3"
+        android:layout_below="@id/pic2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/healthcare"
+        android:padding="10dp"
+        android:layout_margin="10dp"/>
+
+</RelativeLayout>

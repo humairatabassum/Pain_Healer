@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/background1"
+        android:layout_weight="70">
+
+        <ImageView
+            android:id="@+id/IconImg"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/iconpic_1"/>
+
+        <TextView
+            android:id="@+id/PainHealer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/IconImg"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Pain-Healer"
+            android:textSize="38dp"
+            android:textColor="#2A96CA"
+            android:shadowColor="#303D8A"
+            android:shadowRadius="1"
+            android:shadowDx="0"
+            android:shadowDy="4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:textColor="#107AAE"
+            android:textStyle="bold"
+            android:text="Searching For a best doctor?&#10; You can Find here!"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:padding="20dp"
+        android:background="@drawable/circle_shape">
+
+            <Button
+                android:id="@+id/btnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:backgroundTint="#7CB5E6"
+                android:backgroundTintMode="screen"
+                android:shadowColor="#DC6D8FAE"
+                android:shadowDx="0"
+                android:shadowDy="5"
+                android:shadowRadius="1"
+                android:text="@string/new_on_pain_healer_10_register_now" />
+
+            <TextView
+                android:id="@+id/SampleText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_below="@id/btnSignUp"
+                android:gravity="center"
+                android:text="Already have an account ? "
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/logIN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/SampleText"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:backgroundTint="#50ffffff"
+                android:text="LogIN"
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+</LinearLayout>
