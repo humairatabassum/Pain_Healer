@@ -105,7 +105,6 @@
             android:autofillHints="emailAddress"
             android:background="@drawable/button_shape"
             android:hint="Email"
-            android:drawableLeft=""
             android:inputType="textEmailAddress"
             android:padding="15dp"
             android:textColor="@color/black"

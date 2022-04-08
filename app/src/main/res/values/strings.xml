@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">Pain_Healer</string>
     <string name="new_on_pain_healer_10_register_now">New on Pain healer?\nRegister Now!!</string>
+
+    <string-array name="diseases">
+
+        <item><h5>Select if you have any selected problem</h5></item>
+        <item>Diabetes</item>
+        <item>High Pressure</item>
+        <item>Cholesterol</item>
+        <item>Thyroid problem</item>
+
+    </string-array>
+
+    <string-array name="department">
+
+        <item><h5>Select Department</h5></item>
+        <item>Medicine</item>
+        <item>Cardiologists</item>
+        <item>Neurologists</item>
+        <item>Orthopedic</item>
+        <item>Endocrinologists</item>
+        <item>Gastroenterologists</item>
+        <item>Dermatologists</item>
+        <item>Gynecologists</item>
+
+    </string-array>
+
 </resources>
