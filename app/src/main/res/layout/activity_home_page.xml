@@ -10,43 +10,69 @@
 
     <TextView
         android:id="@+id/sampleLoginText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
+
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_centerHorizontal="true"
         android:padding="10dp"
-        android:text="Pain Healer"
-        android:textSize="40dp"
-        android:textColor="#2A96CA"
         android:shadowColor="#303D8A"
-        android:shadowRadius="1"
         android:shadowDx="0"
         android:shadowDy="4"
+        android:shadowRadius="1"
+        android:text="Pain Healer"
+        android:textColor="#2A96CA"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/pic1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@id/sampleLoginText"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/post"
         android:layout_below="@id/sampleLoginText"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/iconpic_1"
-        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:text="Post Problem"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:padding="40dp"
         android:layout_margin="10dp"/>
-    <ImageView
-        android:id="@+id/pic2"
+
+    <TextView
+        android:id="@+id/profile"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@id/pic1"
-        android:src="@drawable/iconpic"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/post"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="40dp"
+        android:text="Patient Profile"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile"
+        android:layout_margin="10dp"
+        android:text="Logout"
+        android:textSize="22dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:padding="10dp"
-        android:layout_margin="10dp"/>
-    <ImageView
-        android:id="@+id/pic3"
-        android:layout_below="@id/pic2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/healthcare"
-        android:padding="10dp"
-        android:layout_margin="10dp"/>
+        android:backgroundTint="#89BCE8"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

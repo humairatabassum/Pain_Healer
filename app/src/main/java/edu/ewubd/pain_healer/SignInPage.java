@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignInPage extends AppCompatActivity {
 
-    Button btnSigninpage;
+    Button btnSigninpage, btnSignupPage;
 
     private FirebaseAuth mAuth;
 
@@ -33,6 +33,14 @@ public class SignInPage extends AppCompatActivity {
 //
 //        }
         btnSigninpage = findViewById(R.id.SigninButton);
+        btnSignupPage = findViewById(R.id.btnSignUp);
+
+        btnSignupPage.setOnClickListener((View v) -> {
+            Intent intent = new Intent(SignInPage.this, PatientRegistration.class);
+            startActivity(intent);
+        });
+
+
         btnSigninpage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

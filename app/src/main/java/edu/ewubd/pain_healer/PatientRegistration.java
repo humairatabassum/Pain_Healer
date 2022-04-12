@@ -52,17 +52,17 @@ public class PatientRegistration extends AppCompatActivity {
         });
     }
     private void registerUser(){
-        EditText etFirstName = findViewById(R.id.etFirstName);
+        EditText etUserName = findViewById(R.id.etUserName);
         EditText etEmail = findViewById(R.id.SignupEmail);
         EditText etPhone = findViewById(R.id.SignupPhone);
         EditText etPass = findViewById(R.id.SignupPass);
 
-        String firstname= etFirstName.getText().toString();
+        String username= etUserName.getText().toString();
         String email= etEmail.getText().toString();
         String phoneNumber= etPhone.getText().toString();
         String password= etPass.getText().toString();
 
-        if (firstname.isEmpty()||email.isEmpty()||phoneNumber.isEmpty()||password.isEmpty()){
+        if (username.isEmpty()||email.isEmpty()||phoneNumber.isEmpty()||password.isEmpty()){
             Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
             return;
         }
@@ -72,7 +72,7 @@ public class PatientRegistration extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user= new User(firstname, email, phoneNumber);
+                            User user= new User(username, email, phoneNumber);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

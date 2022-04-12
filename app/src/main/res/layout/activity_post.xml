@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".PostActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/iconpic_1"
+            android:layout_marginTop="5dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tv1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="16dp"
+            android:shadowColor="#303D8A"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="1"
+            android:text="Pain Healer"
+            android:textColor="#2A96CA"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toRightOf="@id/img1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Demonstrate your Problem"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/img1"
+            app:layout_constraintBottom_toTopOf="@id/etTitle"/>
+
+
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Problem title"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/tv2"
+            app:layout_constraintBottom_toTopOf="@id/etDetails"/>
+
+        <EditText
+            android:id="@+id/etDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Explain problem details"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/etTitle"
+            app:layout_constraintBottom_toTopOf="@id/etSuffer"/>
+
+        <EditText
+            android:id="@+id/etSuffer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="suffering from"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/etDetails"
+            app:layout_constraintBottom_toTopOf="@id/diseaseSpinner"/>
+
+        <Spinner
+            android:id="@+id/diseaseSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:popupBackground="#D4E5F4"
+            android:entries="@array/diseases"
+            app:layout_constraintTop_toBottomOf="@id/etSuffer"
+            app:layout_constraintBottom_toTopOf="@id/tv3"/>
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:padding="5dp"
+            android:text="Choose your selected doctor"
+            android:textStyle="bold"
+            android:textSize="23sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/diseaseSpinner"
+            app:layout_constraintBottom_toTopOf="@id/departmentSpinner"/>
+
+        <Spinner
+            android:id="@+id/departmentSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:popupBackground="#D4E5F4"
+            android:entries="@array/department"
+            app:layout_constraintTop_toBottomOf="@id/tv3"
+            app:layout_constraintBottom_toTopOf="@id/tv3"/>
+
+        <EditText
+            android:id="@+id/etDoctorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="write specific Doctor's name"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/departmentSpinner"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
