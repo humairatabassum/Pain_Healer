@@ -43,10 +43,11 @@ public class HomePage extends AppCompatActivity {
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
                 FirebaseAuth.getInstance().signOut();
                 Intent i = new Intent(HomePage.this, SignInPage.class);
                 startActivity(i);
-                finish();
+
             }
         });
     }

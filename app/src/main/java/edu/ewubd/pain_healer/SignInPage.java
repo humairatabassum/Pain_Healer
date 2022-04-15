@@ -33,18 +33,21 @@ public class SignInPage extends AppCompatActivity {
 //
 //        }
         btnSigninpage = findViewById(R.id.SigninButton);
-        btnSignupPage = findViewById(R.id.btnSignUp);
-
-        btnSignupPage.setOnClickListener((View v) -> {
-            Intent intent = new Intent(SignInPage.this, PatientRegistration.class);
-            startActivity(intent);
-        });
+        btnSignupPage = findViewById(R.id.SignUp);
 
 
         btnSigninpage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 authenticateUser();
+            }
+        });
+
+        btnSignupPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignInPage.this, PatientRegistration.class);
+                startActivity(intent);
             }
         });
     }

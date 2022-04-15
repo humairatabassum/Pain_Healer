@@ -60,7 +60,8 @@
             android:hint="Problem title"
             android:textSize="19sp"
             app:layout_constraintTop_toBottomOf="@id/tv2"
-            app:layout_constraintBottom_toTopOf="@id/etDetails"/>
+            app:layout_constraintBottom_toTopOf="@id/etDetails"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/etDetails"
@@ -70,28 +71,44 @@
             android:hint="Explain problem details"
             android:textSize="19sp"
             app:layout_constraintTop_toBottomOf="@id/etTitle"
-            app:layout_constraintBottom_toTopOf="@id/etSuffer"/>
+            app:layout_constraintBottom_toTopOf="@id/etDuration"/>
 
         <EditText
-            android:id="@+id/etSuffer"
-            android:layout_width="match_parent"
+            android:id="@+id/etDuration"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
             android:layout_margin="10dp"
-            android:hint="suffering from"
+            android:hint="suffering Duration"
             android:textSize="19sp"
             app:layout_constraintTop_toBottomOf="@id/etDetails"
-            app:layout_constraintBottom_toTopOf="@id/diseaseSpinner"/>
+            app:layout_constraintBottom_toTopOf="@id/tv3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etAge"/>
 
-        <Spinner
-            android:id="@+id/diseaseSpinner"
-            android:layout_width="match_parent"
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
             android:layout_margin="10dp"
-            android:padding="10dp"
-            android:popupBackground="#D4E5F4"
-            android:entries="@array/diseases"
-            app:layout_constraintTop_toBottomOf="@id/etSuffer"
-            app:layout_constraintBottom_toTopOf="@id/tv3"/>
+            android:hint="patient's age"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/etDetails"
+            app:layout_constraintBottom_toTopOf="@id/tv3"
+            app:layout_constraintLeft_toRightOf="@id/etDuration"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+<!--        <Spinner-->
+<!--            android:id="@+id/spDisease"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:popupBackground="#D4E5F4"-->
+<!--            android:entries="@array/diseases"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/etDuration"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/tv3"/>-->
 
         <TextView
             android:id="@+id/tv3"
@@ -103,19 +120,19 @@
             android:textStyle="bold"
             android:textSize="23sp"
             android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/diseaseSpinner"
-            app:layout_constraintBottom_toTopOf="@id/departmentSpinner"/>
+            app:layout_constraintTop_toBottomOf="@id/etAge"
+            app:layout_constraintBottom_toTopOf="@id/etDoctorName"/>
 
-        <Spinner
-            android:id="@+id/departmentSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:padding="10dp"
-            android:popupBackground="#D4E5F4"
-            android:entries="@array/department"
-            app:layout_constraintTop_toBottomOf="@id/tv3"
-            app:layout_constraintBottom_toTopOf="@id/tv3"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/spDepartment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:popupBackground="#D4E5F4"-->
+<!--            android:entries="@array/department"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv3"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/etDoctorName"/>-->
 
         <EditText
             android:id="@+id/etDoctorName"
@@ -124,8 +141,20 @@
             android:layout_margin="10dp"
             android:hint="write specific Doctor's name"
             android:textSize="19sp"
-            app:layout_constraintTop_toBottomOf="@id/departmentSpinner"
+            app:layout_constraintTop_toBottomOf="@id/tv3"
             app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Submit"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:backgroundTint="#00BFFF"
+            app:layout_constraintTop_toBottomOf="@id/etDoctorName"
+             app:layout_constraintRight_toRightOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
