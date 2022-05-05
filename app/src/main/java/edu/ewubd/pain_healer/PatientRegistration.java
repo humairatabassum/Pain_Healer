@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,7 +22,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class PatientRegistration extends AppCompatActivity {
+public class PatientRegistration extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private FirebaseAuth mAuth;
 
@@ -52,7 +55,7 @@ public class PatientRegistration extends AppCompatActivity {
     private void registerUser(){
         EditText etUserName = findViewById(R.id.etUserName);
         //EditText etUserAge = findViewById(R.id.etUserAge);
-        EditText etUserGender = findViewById(R.id.etUserGender);
+        Spinner spUserGender = findViewById(R.id.spUserGender);
         EditText etEmail = findViewById(R.id.SignupEmail);
         EditText etPhone = findViewById(R.id.SignupPhone);
         EditText etPass = findViewById(R.id.SignupPass);
@@ -62,7 +65,12 @@ public class PatientRegistration extends AppCompatActivity {
         String phoneNumber= etPhone.getText().toString();
         String password= etPass.getText().toString();
         //String age= etUserAge.getText().toString();
-        String gender= etUserGender.getText().toString();
+        String gender= spUserGender.getSelectedItem().toString();
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.diseases, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spUserGender.setAdapter(adapter);
+        spUserGender.setOnItemSelectedListener(this);
 
         if (username.isEmpty()||email.isEmpty()||phoneNumber.isEmpty()||password.isEmpty()){
             Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
@@ -111,4 +119,16 @@ public class PatientRegistration extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        String item = adapterView.getItemAtPosition(i).toString();
+        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+        String item = adapterView.getItemAtPosition(0).toString();
+        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+    }
 }
