@@ -72,7 +72,8 @@ public class SignInPage extends AppCompatActivity {
                             Intent intent = new Intent(SignInPage.this,HomePage.class);
                             startActivity(intent);
 
-                        } else {
+                        } else if (!task.isSuccessful()) {
+
                             Toast.makeText(SignInPage.this,"Authentication failed." ,
                                     Toast.LENGTH_LONG).show();
                         }

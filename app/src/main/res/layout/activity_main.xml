@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/background1"
@@ -28,7 +29,7 @@
             android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="Pain-Healer"
-            android:textSize="38dp"
+            android:textSize="35dp"
             android:textColor="#2A96CA"
             android:shadowColor="#303D8A"
             android:shadowRadius="1"
@@ -49,6 +50,8 @@
             android:text="Searching For a best doctor?&#10; You can Find here!"/>
 
     </RelativeLayout>
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -92,5 +95,6 @@
                 android:textColor="@color/black" />
 
         </RelativeLayout>
+
 
 </LinearLayout>

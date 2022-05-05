@@ -2,9 +2,17 @@
     <string name="app_name">Pain_Healer</string>
     <string name="new_on_pain_healer_10_register_now">New on Pain healer?\nRegister Now!!</string>
 
+    <string-array name="gender">
+
+        <item><h5>Gender</h5></item>
+        <item>Male</item>
+        <item>Female</item>
+
+    </string-array>
+
     <string-array name="diseases">
 
-        <item><h5>Select if you have any selected problem</h5></item>
+        <item><h5>None</h5></item>
         <item>Diabetes</item>
         <item>High Pressure</item>
         <item>Cholesterol</item>
@@ -14,7 +22,7 @@
 
     <string-array name="department">
 
-        <item><h5>Select Department</h5></item>
+        <item>Select Department</item>
         <item>Medicine</item>
         <item>Cardiologists</item>
         <item>Neurologists</item>

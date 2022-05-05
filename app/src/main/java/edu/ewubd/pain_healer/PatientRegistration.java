@@ -24,6 +24,7 @@ public class PatientRegistration extends AppCompatActivity {
     private FirebaseAuth mAuth;
 
     Button btnSignupPatient, btnLoginPage;
+    String role = "patient";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +32,13 @@ public class PatientRegistration extends AppCompatActivity {
         setContentView(R.layout.activity_patient_registration);
 
         mAuth = FirebaseAuth.getInstance();
-//        if (mAuth.getCurrentUser()!= null){
-//            finish();
-//            return;
-//        }
 
         btnSignupPatient=findViewById(R.id.SignUpBtn);
         btnSignupPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 registerUser();
+                System.out.println("humaira register" + btnSignupPatient);
             }
         });
 
@@ -53,6 +51,8 @@ public class PatientRegistration extends AppCompatActivity {
     }
     private void registerUser(){
         EditText etUserName = findViewById(R.id.etUserName);
+        //EditText etUserAge = findViewById(R.id.etUserAge);
+        EditText etUserGender = findViewById(R.id.etUserGender);
         EditText etEmail = findViewById(R.id.SignupEmail);
         EditText etPhone = findViewById(R.id.SignupPhone);
         EditText etPass = findViewById(R.id.SignupPass);
@@ -61,6 +61,8 @@ public class PatientRegistration extends AppCompatActivity {
         String email= etEmail.getText().toString();
         String phoneNumber= etPhone.getText().toString();
         String password= etPass.getText().toString();
+        //String age= etUserAge.getText().toString();
+        String gender= etUserGender.getText().toString();
 
         if (username.isEmpty()||email.isEmpty()||phoneNumber.isEmpty()||password.isEmpty()){
             Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
@@ -72,15 +74,17 @@ public class PatientRegistration extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user= new User(username, email, phoneNumber);
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    showSingupPatient();
-                                }
-                            });
+                            role = "patient";
+                                User user = new User(username, email, phoneNumber , gender ,role);
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        showSingupPatient();
+                                    }
+                                });
+
                         } else {
                             // If sign in fails, display a message to the user.
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
@@ -93,7 +97,7 @@ public class PatientRegistration extends AppCompatActivity {
                                 Toast.makeText(PatientRegistration.this, "Email format incorrect.", Toast.LENGTH_LONG).show();
                             } else if (task.getException() instanceof FirebaseAuthWeakPasswordException) {
 
-                                Toast.makeText(PatientRegistration.this, "Password is too weak.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(PatientRegistration.this, "Password is too weak\n Password should be at least 6 characters", Toast.LENGTH_LONG).show();
                             }
 
                         }

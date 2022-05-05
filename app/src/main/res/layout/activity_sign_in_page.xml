@@ -76,7 +76,7 @@
         android:autofillHints="password"
         android:background="#DEF2FD"
         android:hint="Password"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@color/black"
         android:textColorHint="@color/black" />

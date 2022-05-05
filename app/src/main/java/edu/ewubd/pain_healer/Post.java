@@ -7,20 +7,20 @@ public class Post {
     public String duration;
     public String age;
     public String doctor;
-//    public String disease;
-//    public String department;
+    public String disease;
+    public String department;
 
     public Post(){
     }
 
-    public Post(String title, String details, String duration, String age, String doctor) {
+    public Post(String title, String details, String duration, String age, String doctor, String disease, String department) {
         this.title = title;
         this.details = details;
         this.duration = duration;
         this.age = age;
         this.doctor = doctor;
-//        this.disease = disease;
-//        this.department = department;
+        this.disease = disease;
+        this.department = department;
     }
 
     public String getTitle() {
@@ -63,19 +63,19 @@ public class Post {
         this.doctor = doctor;
     }
 
-//    public String getDisease() {
-//        return disease;
-//    }
-//
-//    public void setDisease(String disease) {
-//        this.disease = disease;
-//    }
-//
-//    public String getDepartment() {
-//        return department;
-//    }
-//
-//    public void setDepartment(String department) {
-//        this.department = department;
-//    }
+    public String getDisease() {
+        return disease;
+    }
+
+    public void setDisease(String disease) {
+        this.disease = disease;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 }

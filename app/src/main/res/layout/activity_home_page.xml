@@ -61,11 +61,27 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/admin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="40dp"
+        android:text="Admin panel"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:visibility="gone"/>
+
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/profile"
+        android:layout_below="@id/admin"
         android:layout_margin="10dp"
         android:text="Logout"
         android:textSize="22dp"

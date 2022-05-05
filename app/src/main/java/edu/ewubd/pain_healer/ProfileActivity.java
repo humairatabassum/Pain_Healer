@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private String userId;
-    private TextView name, email, phone  ;
+    private TextView name, email, phone , gender , role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,9 @@ public class ProfileActivity extends AppCompatActivity {
         name = findViewById(R.id.tvName);
         email = findViewById(R.id.tvEmail);
         phone = findViewById(R.id.tvPhone);
+        gender = findViewById(R.id.tvGender);
+        role = findViewById(R.id.tvRole);
+
 
         System.out.println("userId: " + userId);
 
@@ -48,6 +51,9 @@ public class ProfileActivity extends AppCompatActivity {
                 name.setText(user.getUsername());
                 email.setText(user.getEmail());
                 phone.setText(user.getPhoneNumber());
+                gender.setText(user.getGender());
+                role.setText(user.getRole());
+
             }
 
             @Override
