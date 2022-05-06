@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="15dp"
     android:background="@drawable/circle_shape"
     tools:context=".HomePage">
 
@@ -43,38 +42,30 @@
                     android:textSize="18sp" />
 
                 <TextView
-
                     android:id="@+id/looking_for"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/welcome"
                     android:text="What are you looking for?"
                     android:textColor="@color/black"
-                    android:textSize="28sp" />
+                    android:textSize="28sp"
+                    android:layout_margin="10dp"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_below="@+id/looking_for"
-                    android:background="@color/teal_200"
-                    android:padding="5sp"
-                    android:text="This is the search boc space"
-                    android:textColor="@color/black"
-                    android:textSize="30sp" />
 
             </RelativeLayout>
 
             <GridLayout
+                android:id="@+id/grid1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
                 android:rowCount="4"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/search_bar">
+                app:layout_constraintTop_toBottomOf="@id/search_bar"
+                app:layout_constraintBottom_toTopOf="@id/btnLogOut">
                 //row=0 col=0//
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -97,13 +88,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:src="@drawable/doc_list" />
+                            android:src="@drawable/ic_baseline_account_circle_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:text="Doctors"
+                            android:text="Profile"
                             android:textAlignment="center"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -111,6 +102,7 @@
                 //row=0 col=1//
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/report_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="0"
@@ -120,7 +112,7 @@
                     android:layout_gravity="fill"
                     android:layout_margin="8dp"
                     app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">>
+                    app:cardElevation="8dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -133,13 +125,52 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:src="@drawable/ic_baseline_notifications_24" />
+                            android:src="@drawable/ic_baseline_add_to_queue_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:text="Diagnostics"
+                            android:text="Report"
+                            android:textAlignment="center"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                //row=1 col=0//
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/admin_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="8dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:src="@drawable/ic_baseline_build_circle_24" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="2dp"
+                            android:text="Admin Panel"
                             android:textAlignment="center"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -147,6 +178,7 @@
                 //row=1 col=0//
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/post_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -169,13 +201,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:src="@drawable/ic_baseline_notifications_24"/>
+                            android:src="@drawable/ic_baseline_post_add_24"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:text="Hospitals"
+                            android:text="Post Problem"
                             android:textAlignment="center"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -183,6 +215,7 @@
                 //row=1 col=1//
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/viewPost_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_row="1"
@@ -211,156 +244,30 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="2dp"
-                            android:text="Pharmacy"
+                            android:text="View Post"
                             android:textAlignment="center"
                             android:textStyle="bold" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 //row=2 col=0//
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_rowWeight="1"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:src="@drawable/ic_baseline_notifications_24"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:text="Reports"
-                            android:textAlignment="center"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                //row=2 col=1//
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="2"
-                    android:layout_rowWeight="1"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:src="@drawable/ic_baseline_notifications_24" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:text="Communications"
-                            android:textAlignment="center"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                //row=3 col=0//
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_rowWeight="1"
-                    android:layout_column="0"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_baseline_notifications_24"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="HOME"
-                            android:textAlignment="center"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-                //row=3 col=1//
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_row="3"
-                    android:layout_rowWeight="1"
-                    android:layout_column="1"
-                    android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="8dp">>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:src="@drawable/ic_baseline_notifications_24"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="2dp"
-                            android:text="Emergency"
-                            android:textAlignment="center"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
             </GridLayout>
+
+            <Button
+                android:id="@+id/btnLogOut"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Logout"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_margin="30dp"
+                android:textColor="@color/black"
+                android:padding="8dp"
+                android:backgroundTint="#89BCE8"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grid1"/>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -369,107 +276,151 @@
 
     </RelativeLayout>
 
+</LinearLayout>
 
 
 
 
 
 
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_row="2"-->
+    <!--                    android:layout_rowWeight="1"-->
+    <!--                    android:layout_column="0"-->
+    <!--                    android:layout_columnWeight="1"-->
+    <!--                    android:layout_gravity="fill"-->
+    <!--                    android:layout_margin="8dp"-->
+    <!--                    app:cardCornerRadius="8dp"-->
+    <!--                    app:cardElevation="8dp">>-->
 
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:orientation="vertical">-->
 
+    <!--                        <ImageView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:src="@drawable/ic_baseline_notifications_24"/>-->
 
-<!--_________________________ Humur code start____________________________________________________________-->
-    <!--<RelativeLayout-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:padding="15dp"-->
-<!--    android:background="@drawable/circle_shape">-->
-<!--    <TextView-->
-<!--        android:id="@+id/sampleLoginText"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:text="Reports"-->
+    <!--                            android:textAlignment="center"-->
+    <!--                            android:textStyle="bold" />-->
+    <!--                    </LinearLayout>-->
+    <!--                </androidx.cardview.widget.CardView>-->
 
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:padding="10dp"-->
-<!--        android:shadowColor="#303D8A"-->
-<!--        android:shadowDx="0"-->
-<!--        android:shadowDy="4"-->
-<!--        android:shadowRadius="1"-->
-<!--        android:text="Pain Healer"-->
-<!--        android:textColor="#2A96CA"-->
-<!--        android:textSize="40dp"-->
-<!--        android:textStyle="bold" />-->
+    <!--                //row=2 col=1//-->
 
-<!--    <ImageView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_toLeftOf="@id/sampleLoginText"-->
-<!--        android:src="@drawable/logo" />-->
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_row="2"-->
+    <!--                    android:layout_rowWeight="1"-->
+    <!--                    android:layout_column="1"-->
+    <!--                    android:layout_columnWeight="1"-->
+    <!--                    android:layout_gravity="fill"-->
+    <!--                    android:layout_margin="8dp"-->
+    <!--                    app:cardCornerRadius="8dp"-->
+    <!--                    app:cardElevation="8dp">>-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/post"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/sampleLoginText"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:padding="40dp"-->
-<!--        android:text="Post Problem"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="30dp"-->
-<!--        android:textStyle="bold" />-->
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:orientation="vertical">-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/profile"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/post"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:padding="40dp"-->
-<!--        android:text="Patient Profile"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="30sp"-->
-<!--        android:textStyle="bold" />-->
+    <!--                        <ImageView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:src="@drawable/ic_baseline_notifications_24" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/admin"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/profile"-->
-<!--        android:layout_marginStart="10dp"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_marginEnd="10dp"-->
-<!--        android:layout_marginBottom="10dp"-->
-<!--        android:padding="40dp"-->
-<!--        android:text="Admin panel"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textSize="30sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:visibility="gone"/>-->
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:text="Communications"-->
+    <!--                            android:textAlignment="center"-->
+    <!--                            android:textStyle="bold" />-->
+    <!--                    </LinearLayout>-->
+    <!--                </androidx.cardview.widget.CardView>-->
+    <!--                //row=3 col=0//-->
 
-<!--    <Button-->
-<!--        android:id="@+id/btnLogout"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@id/admin"-->
-<!--        android:layout_margin="10dp"-->
-<!--        android:text="Logout"-->
-<!--        android:textSize="22dp"-->
-<!--        android:textColor="@color/black"-->
-<!--        android:textStyle="bold"-->
-<!--        android:padding="10dp"-->
-<!--        android:backgroundTint="#89BCE8"-->
-<!--        android:layout_centerHorizontal="true" />-->
-<!--</RelativeLayout>  -->
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_row="3"-->
+    <!--                    android:layout_rowWeight="1"-->
+    <!--                    android:layout_column="0"-->
+    <!--                    android:layout_columnWeight="1"-->
+    <!--                    android:layout_gravity="fill"-->
+    <!--                    android:layout_margin="8dp"-->
+    <!--                    app:cardCornerRadius="8dp"-->
+    <!--                    app:cardElevation="8dp">>-->
 
-    <!--_________________________ Humur code end____________________________________________________________-->
-</ScrollView>
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:orientation="vertical">-->
+
+    <!--                        <ImageView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:src="@drawable/ic_baseline_notifications_24"/>-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:text="HOME"-->
+    <!--                            android:textAlignment="center"-->
+    <!--                            android:textStyle="bold" />-->
+    <!--                    </LinearLayout>-->
+    <!--                </androidx.cardview.widget.CardView>-->
+    <!--                //row=3 col=1//-->
+
+    <!--                <androidx.cardview.widget.CardView-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_row="3"-->
+    <!--                    android:layout_rowWeight="1"-->
+    <!--                    android:layout_column="1"-->
+    <!--                    android:layout_columnWeight="1"-->
+    <!--                    android:layout_gravity="fill"-->
+    <!--                    android:layout_margin="8dp"-->
+    <!--                    app:cardCornerRadius="8dp"-->
+    <!--                    app:cardElevation="8dp">>-->
+
+    <!--                    <LinearLayout-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_gravity="center_vertical|center_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:orientation="vertical">-->
+
+    <!--                        <ImageView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:src="@drawable/ic_baseline_notifications_24"/>-->
+
+    <!--                        <TextView-->
+    <!--                            android:layout_width="wrap_content"-->
+    <!--                            android:layout_height="wrap_content"-->
+    <!--                            android:layout_margin="2dp"-->
+    <!--                            android:text="Emergency"-->
+    <!--                            android:textAlignment="center"-->
+    <!--                            android:textStyle="bold" />-->
+    <!--                    </LinearLayout>-->
+    <!--                </androidx.cardview.widget.CardView>-->

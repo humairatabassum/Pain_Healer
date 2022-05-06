@@ -34,4 +34,14 @@
 
     </string-array>
 
+    <string-array name="title">
+
+        <item><h5>Title</h5></item>
+        <item>General Dr.</item>
+        <item>Prof.Dr.</item>
+        <item>Assoc.Prof.Dr.</item>
+        <item>Asst.Prof.Dr.</item>
+
+    </string-array>
+
 </resources>

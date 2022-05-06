@@ -13,6 +13,9 @@
             android:name=".patient_profile"
             android:exported="false" />
         <activity
+            android:name=".AdminAcitivity"
+            android:exported="false" />
+        <activity
             android:name=".doctorRegistration"
             android:exported="false" />
         <activity

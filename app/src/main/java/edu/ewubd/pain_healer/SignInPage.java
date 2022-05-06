@@ -14,12 +14,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class SignInPage extends AppCompatActivity {
 
     Button btnSigninpage, btnSignupPage;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+
+    String role, userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,7 @@ public class SignInPage extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in_page);
 
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 //        if (mAuth.getCurrentUser() != null) {
 //        finish();
 //        return;
@@ -58,26 +67,50 @@ public class SignInPage extends AppCompatActivity {
         String email= etEmail.getText().toString();
         String password= etPass.getText().toString();
 
+
         if (email.isEmpty()||password.isEmpty()){
             Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
             return;
         }
 
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            finish();
-                            Intent intent = new Intent(SignInPage.this,HomePage.class);
-                            startActivity(intent);
+                            userId= mAuth.getCurrentUser().getUid();
+                            System.out.println("toni User ID: "+userId);
+                            mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    role = snapshot.child("role").getValue().toString();
 
-                        } else if (!task.isSuccessful()) {
+                                    if(role.equals("patient")||role.equals("doctor")||role.equals("admin")){
+                                        System.out.println("User Role: "+ role);
+                                        if (task.isSuccessful()) {
+                                        finish();
+                                        Intent intent = new Intent(SignInPage.this, HomePage.class);
+                                        startActivity(intent);
+                                        }  else if (!task.isSuccessful()) {
 
-                            Toast.makeText(SignInPage.this,"Authentication failed." ,
-                                    Toast.LENGTH_LONG).show();
+                                            Toast.makeText(SignInPage.this,"Authentication failed." ,
+                                                    Toast.LENGTH_LONG).show();
+                                        }
+
+                                    }else if(role.equals("pending")){
+
+                                        Toast.makeText(SignInPage.this, "Please wait for admin to approve your account", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
                         }
-                    }
+
                 });
     }
 }

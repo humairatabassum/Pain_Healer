@@ -3,6 +3,7 @@ package edu.ewubd.pain_healer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class HomePage extends AppCompatActivity {
 
+    private FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
+    CardView adminPanel, Report;
+    String userId,role;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +44,69 @@ public class HomePage extends AppCompatActivity {
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_24);
 
 
+
+        adminPanel = findViewById(R.id.admin_card);
+        CardView report = findViewById(R.id.report_card);
+        CardView profile = findViewById(R.id.profile_card);
+        CardView post = findViewById(R.id.post_card);
+        Button btnLogout = findViewById(R.id.btnLogOut);
+
+        post.setOnClickListener(view -> {
+            Intent i = new Intent(HomePage.this, PostActivity.class);
+            startActivity(i);
+        });
+
+        profile.setOnClickListener(view -> {
+            Intent i = new Intent(HomePage.this, ProfileActivity.class);
+            startActivity(i);
+        });
+
+        adminPanel.setOnClickListener(view -> {
+            Intent i2 = new Intent(HomePage.this, AdminAcitivity.class);
+            startActivity(i2);
+        });
+        mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        userId = mAuth.getCurrentUser().getUid();
+
+        mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                role = snapshot.child("role").getValue().toString();
+                if(role.equals("admin")){
+                    adminPanel.setVisibility(View.VISIBLE);
+                    report.setVisibility(View.GONE);
+
+                }
+                else {
+                    adminPanel.setVisibility(View.GONE);
+                    report.setVisibility(View.VISIBLE);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                FirebaseAuth.getInstance().signOut();
+                Intent i = new Intent(HomePage.this, SignInPage.class);
+                startActivity(i);
+
+            }
+        });
     }
+
+
+
+
 
     // button to toolbar
 
