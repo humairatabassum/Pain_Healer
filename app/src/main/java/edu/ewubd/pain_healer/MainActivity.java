@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSignupPage, btnLoginPage;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
-    String userId, role;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +37,17 @@ public class MainActivity extends AppCompatActivity {
             mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    role = snapshot.child("role").getValue().toString();
+                    User user = snapshot.getValue(User.class);
 
-                    if (role.equals("patient") || role.equals("doctor") || role.equals("admin")) {
-                        System.out.println("User Role: " + role);
+                    if (user.getRole().equalsIgnoreCase("Patient") || user.getRole().equalsIgnoreCase("Doctor") || user.getRole().equalsIgnoreCase("Admin")) {
+
+                        System.out.println("User Role: " + user.getRole());
                         Intent i = new Intent(MainActivity.this, HomePage.class);
                         //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         finish();
 
-                    } else if (role.equals("pending")) {
+                    } else if (user.getRole().equalsIgnoreCase("Pending")) {
                         Intent i = new Intent(MainActivity.this, SignInPage.class);
                         startActivity(i);
                     }
