@@ -5,8 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class CustomAdminAdapter extends ArrayAdapter<User> {
@@ -35,10 +40,28 @@ public class CustomAdminAdapter extends ArrayAdapter<User> {
         TextView doctorNid = rowView.findViewById(R.id.tvDocNid);
         TextView doctorRegister = rowView.findViewById(R.id.tvDocRegister);
 
-        doctorName.setText(values.get(position).getName());
-        doctorEmail.setText(values.get(position).getEmail());
-        doctorNid.setText(values.get(position).getNid());
-        doctorRegister.setText(values.get(position).getRegister());
+        Button accept = rowView.findViewById(R.id.btnAccept);
+        Button reject = rowView.findViewById(R.id.btnReject);
+
+        doctorName.setText("Name: " + values.get(position).getName());
+        doctorEmail.setText("Email: " + values.get(position).getEmail());
+        doctorNid.setText("Nid: " + values.get(position).getNid());
+        doctorRegister.setText("BMDC: " + values.get(position).getRegister());
+
+        accept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseDatabase.getInstance().getReference("Users").child(values.get(position).getUid()).child("role").setValue("Doctor");
+            }
+        });
+
+        reject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("Rahat Rejecting");
+                FirebaseDatabase.getInstance().getReference("Users").child(values.get(position).getUid()).child("role").setValue("Patient");
+            }
+        });
 
         return rowView;
     }
