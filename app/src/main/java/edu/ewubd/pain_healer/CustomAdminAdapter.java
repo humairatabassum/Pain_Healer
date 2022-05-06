@@ -9,13 +9,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
-public class CustomAdminAdapter extends ArrayAdapter<doctor> {
+public class CustomAdminAdapter extends ArrayAdapter<User> {
 
     private final Context context;
-    private final ArrayList<doctor> values;
+    private final ArrayList<User> values;
 
 
-    public CustomAdminAdapter(@NonNull Context context, @NonNull ArrayList<doctor> objects) {
+    public CustomAdminAdapter(@NonNull Context context, @NonNull ArrayList<User> objects) {
         super(context, -1, objects);
         this.context = context;
         this.values = objects;

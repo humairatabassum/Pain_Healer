@@ -29,7 +29,7 @@ public class doctorRegistration extends AppCompatActivity implements AdapterView
     String role = "pending";
     Button register, logIn;
 
-
+    private static final String defaultURL = "https://firebasestorage.googleapis.com/v0/b/pain-healer.appspot.com/o/default-dp.png?alt=media&token=89b59df3-38e0-489f-8523-b89204436481";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +106,11 @@ public class doctorRegistration extends AppCompatActivity implements AdapterView
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            User user = new User(mAuth.getCurrentUser().getUid(), name, email, phone, dob, nid, title, gender, department, register, "Pending", defaultURL);
 
-                            doctor doc = new doctor(name, email, phone , dob , nid , title, gender , department, register, role);
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(doc).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Intent intent = new Intent(doctorRegistration.this, MainActivity.class);
@@ -136,8 +136,6 @@ public class doctorRegistration extends AppCompatActivity implements AdapterView
                     }
                 });
     }
-
-
 
 
     @Override

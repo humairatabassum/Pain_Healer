@@ -48,9 +48,9 @@ public class ProfileActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
 
-                name.setText(user.getUsername());
+                name.setText(user.getName());
                 email.setText(user.getEmail());
-                phone.setText(user.getPhoneNumber());
+                phone.setText(user.getPhone());
                 gender.setText(user.getGender());
                 role.setText(user.getRole());
 

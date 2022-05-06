@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnSignupPage,  btnLoginPage;
+    Button btnSignupPage, btnLoginPage;
     FirebaseAuth mAuth;
     DatabaseReference mDatabase;
     String userId, role;
@@ -31,23 +31,22 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            userId= mAuth.getCurrentUser().getUid();
+            userId = mAuth.getCurrentUser().getUid();
 
             mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     role = snapshot.child("role").getValue().toString();
 
-                    if(role.equals("patient")||role.equals("doctor")||role.equals("admin")){
-                        System.out.println("User Role: "+ role);
+                    if (role.equals("patient") || role.equals("doctor") || role.equals("admin")) {
+                        System.out.println("User Role: " + role);
                         Intent i = new Intent(MainActivity.this, HomePage.class);
                         //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
                         finish();
 
-                    }else if(role.equals("pending")){
+                    } else if (role.equals("pending")) {
                         Intent i = new Intent(MainActivity.this, SignInPage.class);
                         startActivity(i);
                     }
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
+                    Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
 

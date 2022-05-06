@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +29,7 @@ public class HomePage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     CardView adminPanel, Report;
-    String userId,role;
+    String userId, role;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +38,11 @@ public class HomePage extends AppCompatActivity {
 
 
         //toolbar
-        Toolbar toolbar= findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_24);
-
 
 
         adminPanel = findViewById(R.id.admin_card);
@@ -73,21 +73,18 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 role = snapshot.child("role").getValue().toString();
-                if(role.equals("admin")){
+                if (role.equalsIgnoreCase("admin")) {
                     adminPanel.setVisibility(View.VISIBLE);
                     report.setVisibility(View.GONE);
-
-                }
-                else {
+                } else {
                     adminPanel.setVisibility(View.GONE);
                     report.setVisibility(View.VISIBLE);
-
                 }
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(HomePage.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -105,57 +102,24 @@ public class HomePage extends AppCompatActivity {
     }
 
 
-
-
-
     // button to toolbar
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
-
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id= item.getItemId();
+        int id = item.getItemId();
 
-
-        if(id==R.id.action_notification){
+        if (id == R.id.action_notification) {
             return true;
         }
-
-
-
         return super.onOptionsItemSelected(item);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //  <--_________________________ Humur code start____________________________________________________________-->

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class AdminAcitivity extends AppCompatActivity {
 
     private ListView listDoctor;
-    private ArrayList<doctor> doc = new ArrayList<>();
+    private ArrayList<User> doc = new ArrayList<>();
     private CustomAdminAdapter adapter;
     private FirebaseAuth mAuth;
     DatabaseReference mDatabase;

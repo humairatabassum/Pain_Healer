@@ -27,8 +27,6 @@ public class SignInPage extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
 
-    String role, userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,16 +58,17 @@ public class SignInPage extends AppCompatActivity {
             }
         });
     }
-    private void authenticateUser(){
+
+    private void authenticateUser() {
         EditText etEmail = findViewById(R.id.LoginEmail);
         EditText etPass = findViewById(R.id.LoginPW);
 
-        String email= etEmail.getText().toString();
-        String password= etPass.getText().toString();
+        String email = etEmail.getText().toString();
+        String password = etPass.getText().toString();
 
 
-        if (email.isEmpty()||password.isEmpty()){
-            Toast.makeText(this,"Please fill all the fields", Toast.LENGTH_LONG).show();
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -78,38 +77,36 @@ public class SignInPage extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                            userId= mAuth.getCurrentUser().getUid();
-                            System.out.println("toni User ID: "+userId);
-                            mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                    role = snapshot.child("role").getValue().toString();
+                        String userId = mAuth.getCurrentUser().getUid();
+                        System.out.println("toni User ID: " + userId);
+                        mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                User user = snapshot.getValue(User.class);
 
-                                    if(role.equals("patient")||role.equals("doctor")||role.equals("admin")){
-                                        System.out.println("User Role: "+ role);
-                                        if (task.isSuccessful()) {
+                                if (user.getRole().equalsIgnoreCase("Patient") || user.getRole().equalsIgnoreCase("Doctor") || user.getRole().equalsIgnoreCase("Admin")) {
+                                    System.out.println("User Role: " + user.getRole());
+                                    if (task.isSuccessful()) {
                                         finish();
                                         Intent intent = new Intent(SignInPage.this, HomePage.class);
                                         startActivity(intent);
-                                        }  else if (!task.isSuccessful()) {
-
-                                            Toast.makeText(SignInPage.this,"Authentication failed." ,
-                                                    Toast.LENGTH_LONG).show();
-                                        }
-
-                                    }else if(role.equals("pending")){
-
-                                        Toast.makeText(SignInPage.this, "Please wait for admin to approve your account", Toast.LENGTH_SHORT).show();
+                                    } else if (!task.isSuccessful()) {
+                                        Toast.makeText(SignInPage.this, "Authentication failed.",
+                                                Toast.LENGTH_LONG).show();
                                     }
+
+                                } else if (user.getRole().equalsIgnoreCase("Pending")) {
+                                    Toast.makeText(SignInPage.this, "Please wait for admin to approve your account.", Toast.LENGTH_SHORT).show();
                                 }
+                            }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError error) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                Toast.makeText(SignInPage.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
 
-                                }
-                            });
-
-                        }
+                    }
 
                 });
     }
