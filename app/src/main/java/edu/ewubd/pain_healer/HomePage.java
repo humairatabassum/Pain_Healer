@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-//kawshik
+
 
 public class HomePage extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class HomePage extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_24);
+      //  getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_24);
 
 
         adminPanel = findViewById(R.id.admin_card);
@@ -106,16 +107,41 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_home:
+                Intent i = new Intent(HomePage.this, HomePage.class);
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                return true;
 
-        if (id == R.id.action_notification) {
-            return true;
+            case R.id.action_profile:
+                Intent i2 = new Intent(HomePage.this, ProfileActivity.class);
+                startActivity(i2);
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                return true;
+
+
+            case R.id.action_report:
+                //Intent i4 = new Intent(HomePage.this, ReportActivity.class);
+                //startActivity(i4);
+                Toast.makeText(this, "Report", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.action_logout:
+                finish();
+                FirebaseAuth.getInstance().signOut();
+                Intent i5 = new Intent(HomePage.this, SignInPage.class);
+                startActivity(i5);
+                Toast.makeText(this, "Loged Out", Toast.LENGTH_SHORT).show();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
