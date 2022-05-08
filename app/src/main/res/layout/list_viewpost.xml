@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
+    android:background="@drawable/circle_shape">
+
+    <TextView
+        android:id="@+id/tvtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Titles"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/tvDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Details"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="age"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/tvDuration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Duration"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+
+    <TextView
+        android:id="@+id/tvDisease"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="diseases"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+
+    <TextView
+        android:id="@+id/tvDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="doctor"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+
+    <TextView
+        android:id="@+id/tvDepartment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="department"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:padding="3dp"
+        android:layout_margin="5dp"/>
+
+
+</LinearLayout>

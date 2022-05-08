@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,7 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AdminAcitivity extends AppCompatActivity {
+public class AdminActivity extends AppCompatActivity {
 
     private ListView listDoctors;
     private ArrayList<User> docs;
@@ -52,13 +50,13 @@ public class AdminAcitivity extends AppCompatActivity {
                         docs.add(user);
                     }
                 }
-                adapter = new CustomAdminAdapter(AdminAcitivity.this, docs);
+                adapter = new CustomAdminAdapter(AdminActivity.this, docs);
                 listDoctors.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(AdminAcitivity.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(AdminActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 

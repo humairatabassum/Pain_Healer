@@ -1,5 +1,6 @@
 package edu.ewubd.pain_healer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -12,8 +13,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class PostActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
 
@@ -23,6 +30,7 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
     private DatabaseReference mDatabase;
     private String userKey;
     private String userId;
+    private ArrayList<User> doctorList;
 
 
     @Override
@@ -55,8 +63,24 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
         spDepartment.setAdapter(adapter1);
         spDepartment.setOnItemSelectedListener(this);
 
+//        FirebaseDatabase.getInstance().getReference().child("Users").orderByChild("department").equalTo(spDepartment.getSelectedItem().toString()).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dsnapshot) {
+//                for (DataSnapshot snapshot : dsnapshot.getChildren()) {
+//                    User user = snapshot.getValue(User.class);
+//                    doctorList.add(user);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-        Button btnSubmit = findViewById(R.id.btnSubmit);
+
+                Button btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +105,7 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
             return;
         }
 
+        mDatabase.child("Posts").child(userId).child(userKey).child("uid").setValue(userKey);
         mDatabase.child("Posts").child(userId).child(userKey).child("Title").setValue(title);
         mDatabase.child("Posts").child(userId).child(userKey).child("Details").setValue(details);
         mDatabase.child("Posts").child(userId).child(userKey).child("Duration").setValue(duration);

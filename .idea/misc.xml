@@ -13,9 +13,12 @@
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_patient_profile.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_patient_registration.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_post.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_profile.xml" value="0.23568575233022637" />
+        <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_report.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_sign_in_page.xml" value="0.1513467293715263" />
+        <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/activity_view_post.xml" value="0.16417272338606242" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/admin_list.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/list_viewpost.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/layout/toolbar.xml" value="0.1513467293715263" />
         <entry key="..\:/AndroidStudioProjects/Pain_Healer/app/src/main/res/menu/menu_main.xml" value="0.1513467293715263" />
         <entry key="..\:/Users/humai/AndroidStudioProjects/Pain_Healer/app/src/main/res/drawable/button_shape.xml" value="0.149" />
@@ -53,8 +56,6 @@
         <entry key="..\:/Users/kawsh/Desktop/Pain_Healer/app/src/main/res/menu/menu_main.xml" value="0.33" />
         <entry key="..\:/Users/kawsh/Desktop/Pain_Healer/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1695" />
         <entry key="..\:/Users/sabik/OneDrive/Desktop/Pain_Healer/app/src/main/res/layout/activity_admin.xml" value="0.264" />
-        <entry key="..\:/Users/sabik/OneDrive/Desktop/Pain_Healer/app/src/main/res/layout/activity_doctor_registration.xml" value="0.2942708333333333" />
-        <entry key="..\:/Users/sabik/OneDrive/Desktop/Pain_Healer/app/src/main/res/layout/admin_list.xml" value="0.2942708333333333" />
       </map>
     </option>
   </component>

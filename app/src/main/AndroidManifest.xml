@@ -15,10 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pain_Healer">
         <activity
-            android:name=".patient_profile"
+            android:name=".ReportActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminAcitivity"
+            android:name=".ViewPost"
+            android:exported="false" />
+        <activity
+            android:name=".AdminActivity"
             android:exported="false" />
         <activity
             android:name=".doctorRegistration"

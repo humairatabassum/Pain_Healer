@@ -12,8 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +27,7 @@ public class HomePage extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    CardView adminPanel, Report;
+    CardView adminPanel;
     String userId, role;
 
     @Override
@@ -50,7 +48,17 @@ public class HomePage extends AppCompatActivity {
         CardView report = findViewById(R.id.report_card);
         CardView profile = findViewById(R.id.profile_card);
         CardView post = findViewById(R.id.post_card);
+        CardView consult = findViewById(R.id.consult_card);
+        CardView viewPost = findViewById(R.id.viewPost_card);
         Button btnLogout = findViewById(R.id.btnLogOut);
+
+        viewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomePage.this, ViewPost.class);
+                startActivity(intent);
+            }
+        });
 
         post.setOnClickListener(view -> {
             Intent i = new Intent(HomePage.this, PostActivity.class);
@@ -63,7 +71,7 @@ public class HomePage extends AppCompatActivity {
         });
 
         adminPanel.setOnClickListener(view -> {
-            Intent i2 = new Intent(HomePage.this, AdminAcitivity.class);
+            Intent i2 = new Intent(HomePage.this, AdminActivity.class);
             startActivity(i2);
         });
         mAuth = FirebaseAuth.getInstance();
@@ -77,9 +85,18 @@ public class HomePage extends AppCompatActivity {
                 if (role.equalsIgnoreCase("admin")) {
                     adminPanel.setVisibility(View.VISIBLE);
                     report.setVisibility(View.GONE);
-                } else {
+                } else if(role.equalsIgnoreCase("Doctor")){
                     adminPanel.setVisibility(View.GONE);
                     report.setVisibility(View.VISIBLE);
+                    consult.setVisibility(View.VISIBLE);
+                    post.setVisibility(View.GONE);
+
+                }
+                else if(role.equalsIgnoreCase("Patient")){
+                    adminPanel.setVisibility(View.GONE);
+                    report.setVisibility(View.VISIBLE);
+                    consult.setVisibility(View.GONE);
+                    post.setVisibility(View.VISIBLE);
                 }
             }
 

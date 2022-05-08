@@ -39,15 +39,16 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    //retrive data from realtime database
+
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
-    private String userId;
-    private TextView name, email, phone , gender , role;
+    private String userId, role;
+    private TextView name, email, phone , gender , status , title , nid , bmdc , department;
     private ImageView profilePic;
     private Uri imgUrl;
     private Button uploadBtn;
     private StorageReference mStorageRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,9 +64,14 @@ public class ProfileActivity extends AppCompatActivity {
         email = findViewById(R.id.tvEmail);
         phone = findViewById(R.id.tvPhone);
         gender = findViewById(R.id.tvGender);
-        role = findViewById(R.id.tvRole);
+        status = findViewById(R.id.tvRole);
         profilePic=findViewById(R.id.img_profile);
         uploadBtn= findViewById(R.id.btn_upload);
+        title = findViewById(R.id.tvTitle);
+        nid = findViewById(R.id.tvNid);
+        bmdc = findViewById(R.id.tvBMDC);
+        department = findViewById(R.id.tvDepartment);
+
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,13 +80,39 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-        System.out.println("userId: " + userId);
-
-
         mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                role = snapshot.child("role").getValue().toString();
+                if (role.equalsIgnoreCase("doctor")){
+                    title.setVisibility(View.VISIBLE);
+                    nid.setVisibility(View.VISIBLE);
+                    bmdc.setVisibility(View.VISIBLE);
+                    department.setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_s_nid).setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_s_bmdc).setVisibility(View.VISIBLE);
+                    findViewById(R.id.tv_s_department).setVisibility(View.VISIBLE);
+                } else if (role.equalsIgnoreCase("Patient")||role.equalsIgnoreCase("admin")){
+                    title.setVisibility(View.GONE);
+                    nid.setVisibility(View.GONE);
+                    bmdc.setVisibility(View.GONE);
+                    department.setVisibility(View.GONE);
+                    findViewById(R.id.tv_s_nid).setVisibility(View.GONE);
+                    findViewById(R.id.tv_s_bmdc).setVisibility(View.GONE);
+                    findViewById(R.id.tv_s_department).setVisibility(View.GONE);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ProfileActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+                    mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -89,7 +121,11 @@ public class ProfileActivity extends AppCompatActivity {
                 email.setText(user.getEmail());
                 phone.setText(user.getPhone());
                 gender.setText(user.getGender());
-                role.setText(user.getRole());
+                status.setText(user.getRole());
+                title.setText(user.getTitle());
+                nid.setText(user.getNid());
+                department.setText(user.getDepartment());
+                bmdc.setText(user.getRegister());
 
                 try {
                     Glide.with(ProfileActivity.this).load(user.getImageLink()).into(profilePic);

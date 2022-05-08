@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:background="#EECBDADC"
+    android:padding="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -39,35 +41,13 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/img1"
             app:layout_constraintTop_toTopOf="parent" />
-        <TextView
-            android:id="@+id/tv_s_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="7sp"
-            app:layout_constraintRight_toLeftOf="@+id/tvTitle"
-            app:layout_constraintTop_toBottomOf="@id/img1"
-            android:layout_marginTop="30dp"
-            android:text="Title:"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Your Title"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toRightOf="@+id/tv_s_title"
-            app:layout_constraintTop_toBottomOf="@id/img1"/>
 
         <TextView
             android:id="@+id/tv_s_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintRight_toLeftOf="@+id/tvName"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintRight_toLeftOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/img1"
             android:layout_marginTop="30dp"
             android:paddingRight="7sp"
             android:layout_marginLeft="7sp"
@@ -77,17 +57,27 @@
             />
 
         <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Title"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:layout_constraintLeft_toRightOf="@id/tv_s_name"
+            app:layout_constraintTop_toBottomOf="@id/img1"/>
+
+        <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7sp"
             android:layout_marginTop="30dp"
-            android:text="Your Name"
+            android:text="Name"
             android:textSize="20sp"
             android:textColor="@color/black"
-
-            app:layout_constraintLeft_toRightOf="@+id/tv_s_name"
-            app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
+            app:layout_constraintLeft_toRightOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/img1"/>
 
 
         <TextView
@@ -95,10 +85,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintRight_toLeftOf="@+id/tvEmail"
-            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tv_s_name"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="30dp"
             android:paddingRight="7sp"
-            android:layout_marginLeft="7sp"
+            android:layout_marginLeft="2sp"
             android:text="Email: "
             android:textSize="20sp"
             android:textColor="@color/black"
@@ -120,9 +111,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintRight_toLeftOf="@+id/tvPhone"
-            app:layout_constraintTop_toBottomOf="@id/tvEmail"
+            app:layout_constraintTop_toBottomOf="@id/tv_s_email"
             android:layout_marginTop="30dp"
             android:paddingRight="7sp"
+            android:layout_marginLeft="9dp"
             android:text="Phone: "
             android:textSize="20sp"
             android:textColor="@color/black"
@@ -265,14 +257,19 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/image"
+            android:layout_margin="5dp"
+            android:padding="5dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             />
         <Button
             android:id="@+id/btn_upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="75dp"
+            android:layout_height="36dp"
+            android:layout_marginRight="12dp"
+            android:padding="3dp"
             android:text="Upload"
+            android:textSize="7sp"
             android:backgroundTint="#89BCE8"
             app:layout_constraintTop_toBottomOf="@+id/img_profile"
             app:layout_constraintRight_toRightOf="parent"

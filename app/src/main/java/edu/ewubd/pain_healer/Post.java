@@ -1,17 +1,7 @@
 package edu.ewubd.pain_healer;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
-//private Button up_pic;
-//private static final int pic_img=1;
-
 public class Post {
-
-
+    public String uid;
     public String title;
     public String details;
     public String duration;
@@ -23,7 +13,9 @@ public class Post {
     public Post(){
     }
 
-     public Post(String title, String details, String duration, String age, String doctor, String disease, String department) {
+    public Post(String uid, String title, String details, String duration, String age, String doctor, String disease, String department) {
+
+        this.uid = uid;
         this.title = title;
         this.details = details;
         this.duration = duration;
@@ -35,6 +27,14 @@ public class Post {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public void setTitle(String title) {
@@ -88,16 +88,4 @@ public class Post {
     public void setDepartment(String department) {
         this.department = department;
     }
-
-//          up_pic = () findViewById(R.id.tv3);
-//            up_pic.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent galarry = new Intent();
-//                    galarry.setType("image/*");
-//                    galarry.setAction(Intent.ACTION_GET_CONTENT);
-//                    startActivityForResult(galarry, pic_img);
-//                }
-//            });
-
 }

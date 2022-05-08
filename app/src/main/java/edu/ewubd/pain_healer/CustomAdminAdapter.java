@@ -58,7 +58,6 @@ public class CustomAdminAdapter extends ArrayAdapter<User> {
         reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Rejecting");
                 FirebaseDatabase.getInstance().getReference("Users").child(values.get(position).getUid()).child("role").setValue("Patient");
             }
         });

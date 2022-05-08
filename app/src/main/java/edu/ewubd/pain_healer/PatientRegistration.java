@@ -129,6 +129,7 @@ public class PatientRegistration extends AppCompatActivity implements AdapterVie
         String item = adapterView.getItemAtPosition(i).toString();
         Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
 
+
     }
 
     @Override
