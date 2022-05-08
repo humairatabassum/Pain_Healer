@@ -83,16 +83,19 @@
                 android:text="Already have an account ? "
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/logIN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/SampleText"
-                android:layout_centerInParent="true"
-                android:layout_margin="10dp"
-                android:backgroundTint="#50ffffff"
-                android:text="LogIN"
-                android:textColor="@color/black" />
+        <Button
+            android:id="@+id/logIN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SampleText"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#50ffffff"
+            android:text="LogIN"
+            android:textColor="@color/black" />
 
         </RelativeLayout>
 
