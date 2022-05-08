@@ -10,11 +10,10 @@ public class Post {
     public String disease;
     public String department;
 
-    public Post(){
+    public Post() {
     }
 
     public Post(String uid, String title, String details, String duration, String age, String doctor, String disease, String department) {
-
         this.uid = uid;
         this.title = title;
         this.details = details;
@@ -25,16 +24,16 @@ public class Post {
         this.department = department;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
     public String getUid() {
         return uid;
     }
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {

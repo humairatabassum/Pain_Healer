@@ -106,13 +106,13 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         mDatabase.child("Posts").child(userId).child(userKey).child("uid").setValue(userKey);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Title").setValue(title);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Details").setValue(details);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Duration").setValue(duration);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Age").setValue(age);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Doctor").setValue(doctor);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Disease").setValue(disease);
-        mDatabase.child("Posts").child(userId).child(userKey).child("Department").setValue(department);
+        mDatabase.child("Posts").child(userId).child(userKey).child("title").setValue(title);
+        mDatabase.child("Posts").child(userId).child(userKey).child("details").setValue(details);
+        mDatabase.child("Posts").child(userId).child(userKey).child("duration").setValue(duration);
+        mDatabase.child("Posts").child(userId).child(userKey).child("age").setValue(age);
+        mDatabase.child("Posts").child(userId).child(userKey).child("doctor").setValue(doctor);
+        mDatabase.child("Posts").child(userId).child(userKey).child("disease").setValue(disease);
+        mDatabase.child("Posts").child(userId).child(userKey).child("department").setValue(department);
         finish();
     }
 

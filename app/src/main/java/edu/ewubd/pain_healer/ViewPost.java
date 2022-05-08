@@ -63,10 +63,10 @@ public class ViewPost extends AppCompatActivity {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Post p = snapshot.getValue(Post.class);
                     post.add(p);
-                    System.out.println("toni title"+p.getTitle());
-                    System.out.println("toni uid"+p.getUid());
-                    System.out.println("toni age"+p.getAge());
-                    System.out.println("toni details"+p.getDetails());
+                    System.out.println("toni title: " +p.getTitle());
+                    System.out.println("toni uid: " +p.getUid());
+                    System.out.println("toni age: " +p.getAge());
+                    System.out.println("toni details: " +p.getDetails());
                 }
 
                 adapter = new CustomViewAdapter(ViewPost.this, post);
