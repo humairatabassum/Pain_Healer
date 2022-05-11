@@ -78,8 +78,8 @@ public class SignInPage extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         String userId = mAuth.getCurrentUser().getUid();
-                        System.out.println("toni User ID: " + userId);
                         mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 User user = snapshot.getValue(User.class);

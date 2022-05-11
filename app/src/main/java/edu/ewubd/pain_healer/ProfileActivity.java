@@ -80,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+
         mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,6 +93,7 @@ public class ProfileActivity extends AppCompatActivity {
                     findViewById(R.id.tv_s_nid).setVisibility(View.VISIBLE);
                     findViewById(R.id.tv_s_bmdc).setVisibility(View.VISIBLE);
                     findViewById(R.id.tv_s_department).setVisibility(View.VISIBLE);
+
                 } else if (role.equalsIgnoreCase("Patient")||role.equalsIgnoreCase("admin")){
                     title.setVisibility(View.GONE);
                     nid.setVisibility(View.GONE);
@@ -112,7 +114,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-                    mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
@@ -135,20 +137,21 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
 
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.w("ProfileActivity", "loadPost:onCancelled", databaseError.toException());
             }
         });
-profilePic.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(intent, 1);
-    }
-});
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(intent, 1);
+         }
+    });
 
     }
     @Override
@@ -179,7 +182,7 @@ profilePic.setOnClickListener(new View.OnClickListener() {
                     while (!urlTask.isSuccessful()) ;
                     Uri uri = urlTask.getResult();
                     String downloadImageUrl= uri.toString();
-                    System.out.println("Download URL:  " + downloadImageUrl);
+                   // System.out.println("Download URL:  " + downloadImageUrl);
 
                     DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("Users").child(mAuth.getCurrentUser().getUid());
                     HashMap<String, Object> hashMap = new HashMap<>();

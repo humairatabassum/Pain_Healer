@@ -1,25 +1,30 @@
 package edu.ewubd.pain_healer;
 
 public class Post {
+
     public String uid;
+    public String patientUid;
     public String title;
     public String details;
     public String duration;
     public String age;
     public String doctor;
+    public String doctorUid;
     public String disease;
     public String department;
 
     public Post() {
     }
 
-    public Post(String uid, String title, String details, String duration, String age, String doctor, String disease, String department) {
+    public Post(String patientUid, String uid, String title, String details, String duration, String age, String doctor, String doctorUid, String disease, String department) {
+        this.patientUid = patientUid;
         this.uid = uid;
         this.title = title;
         this.details = details;
         this.duration = duration;
         this.age = age;
         this.doctor = doctor;
+        this.doctorUid = doctorUid;
         this.disease = disease;
         this.department = department;
     }
@@ -72,6 +77,14 @@ public class Post {
         this.doctor = doctor;
     }
 
+    public String getDoctorUid() {
+        return doctorUid;
+    }
+
+    public void setDoctorUid(String doctorUid) {
+        this.doctorUid = doctorUid;
+    }
+
     public String getDisease() {
         return disease;
     }
@@ -86,5 +99,13 @@ public class Post {
 
     public void setDepartment(String department) {
         this.department = department;
+    }
+
+    public String getPatientUid() {
+        return patientUid;
+    }
+
+    public void setPatientUid(String patientUid) {
+        this.patientUid = patientUid;
     }
 }

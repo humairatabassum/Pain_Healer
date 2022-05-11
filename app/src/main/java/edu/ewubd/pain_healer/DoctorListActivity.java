@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,62 +17,68 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
-public class ViewPost extends AppCompatActivity {
+public class DoctorListActivity extends AppCompatActivity {
 
-    private GridView gridView;
-    private ArrayList<Post> posts;
-    private CustomViewAdapter adapter;
+    private ListView listDoctors;
+    private ArrayList<User> docs;
+    private CustomDoctorListAdapter adapter;
     private FirebaseAuth mAuth;
-
+    DatabaseReference mDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_post);
+        setContentView(R.layout.activity_doctor_list);
 
-        gridView = findViewById(R.id.gridview);
+        listDoctors = findViewById(R.id.listDoctor);
+
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        loadData();
+
+        listDoctors.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Post pst = posts.get(i);
-                Intent intent = new Intent(ViewPost.this, ViewReport.class);
-                intent.putExtra("postId", pst.getUid());
+                System.out.println("Clicked on " + docs.get(i).getName());
+                User doctor = docs.get(i);
+                Intent intent = new Intent(DoctorListActivity.this, PostActivity2.class);
+                intent.putExtra("uid", doctor.getUid());
                 startActivity(intent);
+
             }
         });
 
-
-        loadData();
     }
 
     private void loadData() {
-        posts = new ArrayList<>();
+        docs = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference("Posts").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                docs.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Post p = snapshot.getValue(Post.class);
-                    posts.add(p);
+                    User user = snapshot.getValue(User.class);
+                    if (user.getRole().equalsIgnoreCase("Doctor")) {
+                        docs.add(user);
+                    }
                 }
-
-                adapter = new CustomViewAdapter(ViewPost.this, posts);
-                gridView.setAdapter(adapter);
+                adapter = new CustomDoctorListAdapter(DoctorListActivity.this, docs);
+                listDoctors.setAdapter(adapter);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ViewPost.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(DoctorListActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
 
-
-
     }
+
+
+
+
 }

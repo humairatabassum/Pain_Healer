@@ -2,82 +2,216 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/circle_shape">
+    android:background="#20ffffff">
 
-    <TextView
-        android:id="@+id/tvtitle"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Titles"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+        android:layout_margin="5dp"
+        app:cardElevation="10dp"
+        app:cardCornerRadius="25dp">
 
-    <TextView
-        android:id="@+id/tvDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Details"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvAge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="age"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tvDuration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Duration"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Title: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Titles"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
 
 
-    <TextView
-        android:id="@+id/tvDisease"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="diseases"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Details: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Details"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Patient's Age: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="age"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
 
 
-    <TextView
-        android:id="@+id/tvDoctor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="doctor"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+            </LinearLayout>
 
 
-    <TextView
-        android:id="@+id/tvDepartment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="department"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:padding="3dp"
-        android:layout_margin="5dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Time Duration: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Duration"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Existing Diseases (if any): "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvDisease"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="diseases"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Doctor's Name:"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tvDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="doctor"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="3dp"
+                    android:layout_margin="5dp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Doctor's Department:"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tvDepartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Department"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 
 
 </LinearLayout>

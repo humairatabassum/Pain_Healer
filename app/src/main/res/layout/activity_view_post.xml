@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEF3F6"
+    android:background="@drawable/shade_color"
     android:padding="5dp"
     android:orientation="vertical"
     tools:context=".ViewPost">
@@ -55,8 +55,8 @@
         android:gravity="center" />
 
     <GridView
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="8dp"
         android:id="@+id/gridview"
         android:numColumns="1"
         android:layout_width="match_parent"

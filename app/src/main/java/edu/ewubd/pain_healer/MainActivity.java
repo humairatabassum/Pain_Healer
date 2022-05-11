@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
                     if (user.getRole().equalsIgnoreCase("Patient") || user.getRole().equalsIgnoreCase("Doctor") || user.getRole().equalsIgnoreCase("Admin")) {
 
-                        System.out.println("User Role: " + user.getRole());
                         Intent i = new Intent(MainActivity.this, HomePage.class);
                         //i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(i);
@@ -61,23 +60,22 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        btnSignupPage = findViewById(R.id.btnSignUp);
-        btnLoginPage = findViewById(R.id.logIN);
+            btnSignupPage = findViewById(R.id.btnSignUp);
+            btnLoginPage = findViewById(R.id.logIN);
 
-        btnSignupPage.setOnClickListener(view -> {
-            Intent i = new Intent(MainActivity.this, PatientRegistration.class);
-            startActivity(i);
-            System.out.println("signup Button");
+            btnSignupPage.setOnClickListener(view -> {
+                Intent i = new Intent(MainActivity.this, PatientRegistration.class);
+                startActivity(i);
+                System.out.println("signup Button");
 
-        });
+            });
 
-        btnLoginPage.setOnClickListener(view -> {
-            Intent i = new Intent(MainActivity.this, SignInPage.class);
-            startActivity(i);
+            btnLoginPage.setOnClickListener(view -> {
+                Intent i = new Intent(MainActivity.this, SignInPage.class);
+                startActivity(i);
 
-        });
+            });
 
-        System.out.println("Tonima" + btnLoginPage);
 
     }
 }

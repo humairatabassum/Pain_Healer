@@ -1,8 +1,8 @@
 package edu.ewubd.pain_healer;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,16 +13,12 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class PostActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener {
+public class PostActivity2 extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText editTitle, editDetails, editDuration, editAge, editDoctor;
     private Spinner spDiseases,spDepartment;
@@ -30,13 +26,16 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
     private DatabaseReference mDatabase;
     private String userKey;
     private String userId;
+    private String doctorUid;
     private ArrayList<User> doctorList;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_post2);
+
+        Intent intent = getIntent();
+        doctorUid = intent.getStringExtra("uid");
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -80,7 +79,7 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
 //        });
 
 
-                Button btnSubmit = findViewById(R.id.btnSubmit);
+        Button btnSubmit = findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,23 +105,16 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
         mDatabase.child("Posts").child(userId).child(userKey).child("uid").setValue(userKey);
+        mDatabase.child("Posts").child(userId).child(userKey).child("patientUid").setValue(userId);
         mDatabase.child("Posts").child(userId).child(userKey).child("title").setValue(title);
         mDatabase.child("Posts").child(userId).child(userKey).child("details").setValue(details);
         mDatabase.child("Posts").child(userId).child(userKey).child("duration").setValue(duration);
         mDatabase.child("Posts").child(userId).child(userKey).child("age").setValue(age);
         mDatabase.child("Posts").child(userId).child(userKey).child("doctor").setValue(doctor);
+        mDatabase.child("Posts").child(userId).child(userKey).child("doctorUid").setValue(doctorUid);
         mDatabase.child("Posts").child(userId).child(userKey).child("disease").setValue(disease);
         mDatabase.child("Posts").child(userId).child(userKey).child("department").setValue(department);
         finish();
-    }
-
-
-
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        String item = adapterView.getItemAtPosition(i).toString();
-        Toast.makeText(adapterView.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
@@ -139,6 +131,8 @@ public class PostActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+        super.onPointerCaptureChanged(hasCapture);
+    }
 }
-
-

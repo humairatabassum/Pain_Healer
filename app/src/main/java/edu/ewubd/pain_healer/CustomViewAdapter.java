@@ -41,13 +41,13 @@ public class CustomViewAdapter extends ArrayAdapter<Post> {
         TextView department = rowView.findViewById(R.id.tvDepartment);
 
 
-        title.setText("Title: " + values.get(position).getTitle());
-        details.setText("Details: " + values.get(position).getDetails());
-        age.setText("Patient's Age : " + values.get(position).getAge());
-        duration.setText("Duration: " + values.get(position).getDuration());
-        disease.setText("Existing Diseases(if any): " + values.get(position).getDisease());
-        doctor.setText("Doctor: " + values.get(position).getDoctor());
-        department.setText("Doctor's department : " + values.get(position).getDepartment());
+        title.setText( values.get(position).getTitle());
+        details.setText( values.get(position).getDetails());
+        age.setText( values.get(position).getAge());
+        duration.setText(values.get(position).getDuration());
+        disease.setText( values.get(position).getDisease());
+        doctor.setText(values.get(position).getDoctor());
+        department.setText(values.get(position).getDepartment());
 
 
         return rowView;
