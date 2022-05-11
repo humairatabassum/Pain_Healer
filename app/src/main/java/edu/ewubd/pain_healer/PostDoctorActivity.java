@@ -46,24 +46,19 @@ public class PostDoctorActivity extends AppCompatActivity {
         loadData();
 
     }
-
     private void loadData() {
         posts = new ArrayList<>();
-
         FirebaseDatabase.getInstance().getReference("Posts").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot mainDataSnapshot) {
                 posts.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Post p = snapshot.getValue(Post.class);
-
-                   // if(userId.equals(p1.getDoctorUid())) {
-
-                        System.out.println("toni title: " + p.getTitle());
-                        System.out.println("toni details: " + p.getDoctorUid());
-
-                    posts.add(p);
-                    // }
+                for (DataSnapshot dataSnapshot : mainDataSnapshot.getChildren()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Post p = snapshot.getValue(Post.class);
+                        if (userId.equals(p.getDoctorUid())) {
+                            posts.add(p);
+                        }
+                    }
                 }
 
                 adapter = new CustomViewAdapter(PostDoctorActivity.this, posts);
@@ -75,6 +70,5 @@ public class PostDoctorActivity extends AppCompatActivity {
                 Toast.makeText(PostDoctorActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
-
     }
 }
