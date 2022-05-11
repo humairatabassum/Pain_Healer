@@ -39,8 +39,7 @@
                     android:text="Titles"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
 
 
             </LinearLayout>
@@ -66,8 +65,7 @@
                     android:text="Details"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
 
             </LinearLayout>
 
@@ -92,8 +90,7 @@
                     android:text="age"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
 
 
             </LinearLayout>
@@ -120,8 +117,7 @@
                     android:text="Duration"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
 
             </LinearLayout>
 
@@ -147,8 +143,7 @@
                     android:text="diseases"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
 
             </LinearLayout>
 
@@ -176,8 +171,7 @@
                     android:text="doctor"
                     android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:padding="3dp"
-                    android:layout_margin="5dp"/>
+                    android:padding="5dp"/>
             </LinearLayout>
 
 
