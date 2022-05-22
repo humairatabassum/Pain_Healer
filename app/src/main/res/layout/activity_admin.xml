@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/img1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@drawable/iconpic_1"
         android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,9 +28,9 @@
         android:shadowDx="0"
         android:shadowDy="2"
         android:shadowRadius="1"
-        android:text="Pain Healer"
+        android:text="Admin Panel"
         android:textColor="#2A96CA"
-        android:textSize="28sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:layout_toRightOf="@id/img1"
         app:layout_constraintTop_toTopOf="parent" />

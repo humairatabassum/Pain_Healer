@@ -37,6 +37,8 @@ public class PostDoctorActivity extends AppCompatActivity {
                 Post pst = posts.get(i);
                 Intent intent = new Intent(PostDoctorActivity.this, ReportActivity.class);
                 intent.putExtra("postId", pst.getUid());
+                intent.putExtra("patientUid", pst.getPatientUid());
+                intent.putExtra("isReport", pst.getReport());
                 startActivity(intent);
             }
         });
@@ -56,7 +58,9 @@ public class PostDoctorActivity extends AppCompatActivity {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Post p = snapshot.getValue(Post.class);
                         if (userId.equals(p.getDoctorUid())) {
-                            posts.add(p);
+                            if (p.isReport.equals("false")) {
+                                posts.add(p);
+                            }
                         }
                     }
                 }

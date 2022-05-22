@@ -9,12 +9,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="15dp">
+        android:padding="18dp">
 
         <ImageView
             android:id="@+id/img1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/iconpic_1"
             android:layout_marginTop="5dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -31,9 +31,9 @@
             android:shadowDx="0"
             android:shadowDy="2"
             android:shadowRadius="1"
-            android:text="Pain Healer"
+            android:text="Pain Demonstration"
             android:textColor="#2A96CA"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@id/img1"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,61 +43,138 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:layout_marginBottom="30dp"
             android:text="Demonstrate your Problem"
             android:textStyle="bold"
             android:textSize="23sp"
             android:textColor="@color/black"
             app:layout_constraintTop_toBottomOf="@id/img1"
-            app:layout_constraintBottom_toTopOf="@id/etTitle" />
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
 
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Problem Title: "
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tv2"
+            app:layout_constraintBottom_toTopOf="@id/tvDetails"
+            app:layout_constraintRight_toLeftOf="@id/etTitle"/>
 
         <EditText
             android:id="@+id/etTitle"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="5"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Problem title"
+            android:hint=" Problem title                        "
             android:textSize="19sp"
             app:layout_constraintTop_toBottomOf="@id/tv2"
             app:layout_constraintBottom_toTopOf="@id/etDetails"
+            app:layout_constraintLeft_toRightOf="@id/tvTitle"
             android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Explain problem :"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintBottom_toTopOf="@id/tvDuration"
+            app:layout_constraintRight_toLeftOf="@id/etDetails"/>
 
         <EditText
             android:id="@+id/etDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="Explain problem details"
-            android:textSize="19sp"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4.5"
+            android:layout_marginRight="10dp"
+            android:inputType="textPersonName"
+            android:hint="Problem details       "
             app:layout_constraintTop_toBottomOf="@id/etTitle"
-            app:layout_constraintBottom_toTopOf="@id/etDuration"/>
+            app:layout_constraintBottom_toTopOf="@id/etDuration"
+            app:layout_constraintLeft_toRightOf="@id/tvDetails"/>
+
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="2"
+            android:layout_margin="10dp"
+            android:hint="Duration :"
+            android:textColorHint="@color/black"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/tvDetails"
+            app:layout_constraintBottom_toTopOf="@id/tvAge"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etDuration"/>
 
         <EditText
             android:id="@+id/etDuration"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_weight="3.5"
             android:layout_margin="10dp"
             android:hint="suffering Duration"
             android:textSize="19sp"
             app:layout_constraintTop_toBottomOf="@id/etDetails"
-            app:layout_constraintBottom_toTopOf="@id/tvDisease"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvDuration"
+            app:layout_constraintBottom_toTopOf="@id/etAge"/>
+
+        <TextView
+            android:id="@+id/tvAge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="2.3"
+            android:layout_margin="10dp"
+            android:hint="Age :"
+            android:textStyle="bold"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            app:layout_constraintTop_toBottomOf="@id/tvDuration"
+            app:layout_constraintBottom_toTopOf="@id/spGender"
             app:layout_constraintRight_toLeftOf="@id/etAge"/>
 
         <EditText
             android:id="@+id/etAge"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_weight="1.5"
             android:layout_margin="10dp"
             android:hint="patient's age"
             android:textSize="19sp"
-            app:layout_constraintTop_toBottomOf="@id/etDetails"
+            android:inputType="numberSigned"
+            app:layout_constraintTop_toBottomOf="@id/tvDuration"
+            app:layout_constraintBottom_toTopOf="@id/spGender"
+            app:layout_constraintLeft_toRightOf="@id/tvAge"/>
+
+        <Spinner
+            android:id="@+id/spGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:entries="@array/gender"
+            android:padding="10dp"
+            android:popupBackground="#D4E5F4"
             app:layout_constraintBottom_toTopOf="@id/tvDisease"
-            app:layout_constraintLeft_toRightOf="@id/etDuration"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/etAge"
+            tools:layout_editor_absoluteX="30dp" />
 
         <TextView
             android:id="@+id/tvDisease"
@@ -108,7 +185,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             android:padding="10dp"
-            app:layout_constraintTop_toBottomOf="@id/etDuration"
+            app:layout_constraintTop_toBottomOf="@id/spGender"
             app:layout_constraintBottom_toTopOf="@id/spDisease"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginHorizontal="15dp"/>
@@ -122,43 +199,33 @@
             android:popupBackground="#D4E5F4"
             android:entries="@array/diseases"
             app:layout_constraintTop_toBottomOf="@id/tvDisease"
-            app:layout_constraintBottom_toTopOf="@id/tv3"/>
+            app:layout_constraintBottom_toTopOf="@id/btnSubmit"/>
 
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="15dp"
-            android:padding="5dp"
-            android:text="Choose your selected doctor"
-            android:textStyle="bold"
-            android:textSize="23sp"
-            android:textColor="@color/black"
-            app:layout_constraintTop_toBottomOf="@id/spDisease"
-            app:layout_constraintBottom_toTopOf="@id/spDepartment"/>
+<!--        <TextView-->
+<!--            android:id="@+id/tv3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginVertical="15dp"-->
+<!--            android:padding="5dp"-->
+<!--            android:text="Choose your selected doctor"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textSize="23sp"-->
+<!--            android:textColor="@color/black"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/spDisease"-->
+<!--            app:layout_constraintBottom_toTopOf="@id/spDepartment"/>-->
 
 
-        <Spinner
-            android:id="@+id/spDepartment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:entries="@array/department"
-            android:padding="10dp"
-            android:popupBackground="#D4E5F4"
-            app:layout_constraintBottom_toTopOf="@id/etDoctorName"
-            app:layout_constraintTop_toBottomOf="@id/spDepartment"
-            tools:layout_editor_absoluteX="30dp" />
 
-        <EditText
-            android:id="@+id/etDoctorName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="write specific Doctor's name"
-            android:textSize="19sp"
-            app:layout_constraintTop_toBottomOf="@id/spDepartment"
-            app:layout_constraintBottom_toBottomOf="@id/btnSubmit"/>
+
+<!--        <EditText-->
+<!--            android:id="@+id/etDoctorName"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:hint="write specific Doctor's name"-->
+<!--            android:textSize="19sp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/spDepartment"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/btnSubmit"/>-->
 
         <Button
             android:id="@+id/btnSubmit"
@@ -169,7 +236,7 @@
             android:textSize="15sp"
             android:textColor="@color/white"
             android:backgroundTint="#00BFFF"
-            app:layout_constraintTop_toBottomOf="@id/etDoctorName"
+            app:layout_constraintTop_toBottomOf="@id/spDisease"
             app:layout_constraintRight_toRightOf="parent"/>
 
 

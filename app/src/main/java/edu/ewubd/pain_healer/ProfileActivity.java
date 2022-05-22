@@ -80,7 +80,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
         mDatabase.child("Users").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -214,4 +213,5 @@ public class ProfileActivity extends AppCompatActivity {
 //        startActivity(intent);
 //        finish();
 //    }
+
 }

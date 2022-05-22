@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pain_Healer">
         <activity
+            android:name=".HospitalListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewReport"
             android:exported="false" />
         <activity

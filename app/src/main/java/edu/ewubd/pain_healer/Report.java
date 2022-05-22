@@ -2,7 +2,7 @@ package edu.ewubd.pain_healer;
 
 public class Report {
 
-    private String docUid;
+    private String postUid;
     private String patientUid;
     private String med1;
     private String med2;
@@ -12,12 +12,15 @@ public class Report {
     private String test;
     private String medTime1;
     private String medTime2;
+    private String timePeriod1;
+    private String timePeriod2;
+    private String date;
 
     public Report() {
     }
 
-    public Report(String docUid, String patientUid, String med1, String med2, String quan1, String quan2, String suggestions, String test, String medTime1, String medTime2) {
-        this.docUid = docUid;
+    public Report(String postUid, String patientUid, String med1, String med2, String quan1, String quan2, String suggestions, String test, String medTime1, String medTime2 , String timePeriod1, String timePeriod2, String date) {
+        this.postUid = postUid;
         this.patientUid = patientUid;
         this.med1 = med1;
         this.med2 = med2;
@@ -27,14 +30,17 @@ public class Report {
         this.test = test;
         this.medTime1 = medTime1;
         this.medTime2 = medTime2;
+        this.timePeriod1 = timePeriod1;
+        this.timePeriod2 = timePeriod2;
+        this.date = date;
     }
 
-    public String getDocUid() {
-        return docUid;
+    public String getPostUid() {
+        return postUid;
     }
 
-    public void setDocUid(String docUid) {
-        this.docUid = docUid;
+    public void setPostUid(String docUid) {
+        this.postUid = docUid;
     }
 
     public String getPatientUid() {
@@ -107,5 +113,29 @@ public class Report {
 
     public void setMedTime2(String medTime2) {
         this.medTime2 = medTime2;
+    }
+
+    public String getTimePeriod1() {
+        return timePeriod1;
+    }
+
+    public void setTimePeriod1(String timePeriod1) {
+        this.timePeriod1 = timePeriod1;
+    }
+
+    public String getTimePeriod2() {
+        return timePeriod2;
+    }
+
+    public void setTimePeriod2(String timePeriod2) {
+        this.timePeriod2 = timePeriod2;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

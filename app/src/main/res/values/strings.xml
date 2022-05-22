@@ -7,6 +7,7 @@
         <item><h5>Gender</h5></item>
         <item>Male</item>
         <item>Female</item>
+        <item>Others</item>
 
     </string-array>
 

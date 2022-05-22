@@ -1,16 +1,21 @@
 package edu.ewubd.pain_healer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -52,6 +57,27 @@ public class CustomAdminAdapter extends ArrayAdapter<User> {
             @Override
             public void onClick(View view) {
                 FirebaseDatabase.getInstance().getReference("Users").child(values.get(position).getUid()).child("role").setValue("Doctor");
+
+                FirebaseDatabase.getInstance().getReference().child("Users").child(values.get(position).getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.getValue(User.class);
+
+                        String email = user.getEmail();
+                        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+                        emailIntent.setType("plain/text");
+                        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
+                        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Pain Healer : Registration Confirmation Email");
+                        emailIntent.putExtra(Intent.EXTRA_TEXT, "Name, " + user.getName()+ "\n your account id is accepted as a doctor.\nWelcome to Pain Healer");
+                        context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
             }
         });
 
@@ -64,5 +90,6 @@ public class CustomAdminAdapter extends ArrayAdapter<User> {
 
         return rowView;
     }
+
 }
 

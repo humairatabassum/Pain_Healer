@@ -37,7 +37,7 @@
                     android:id="@+id/tvtitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Titles"
+                    android:text=" "
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:padding="5dp"/>
@@ -64,37 +64,10 @@
                     android:id="@+id/tvDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Details"
+                    android:text=" "
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:padding="5dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Patient's Age: "
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/tvAge"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="age"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:padding="5dp"/>
-
 
             </LinearLayout>
 
@@ -118,12 +91,69 @@
                     android:id="@+id/tvDuration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Duration"
+                    android:text=" "
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:padding="5dp"/>
 
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Patient's Age: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tvAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" "
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:padding="5dp"/>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="Patient's Gender:"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/tvDepartment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text=" "
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
 
 
             <LinearLayout
@@ -145,7 +175,7 @@
                     android:id="@+id/tvDisease"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="diseases"
+                    android:text=" "
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:padding="5dp"/>
@@ -174,39 +204,11 @@
                     android:id="@+id/tvDoctor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="doctor"
+                    android:text=" "
                     android:textSize="18sp"
                     android:textColor="@color/black"
                     android:padding="5dp"/>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:text="Doctor's Department:"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:id="@+id/tvDepartment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Department"
-                    android:textColor="#000000"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
 
         </LinearLayout>
 

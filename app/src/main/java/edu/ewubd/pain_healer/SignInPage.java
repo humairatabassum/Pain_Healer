@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,7 +23,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SignInPage extends AppCompatActivity {
 
-    Button btnSigninpage, btnSignupPage;
+    Button btnSigninpage;
+    TextView btnSignupPage;
 
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;

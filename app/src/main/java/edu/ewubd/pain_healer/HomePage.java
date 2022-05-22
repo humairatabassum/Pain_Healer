@@ -45,9 +45,9 @@ public class HomePage extends AppCompatActivity {
 
 
         adminPanel = findViewById(R.id.admin_card);
-        CardView report = findViewById(R.id.report_card);
+        CardView doctorList = findViewById(R.id.report_card);
         CardView profile = findViewById(R.id.profile_card);
-        CardView post = findViewById(R.id.post_card);
+        CardView hospital = findViewById(R.id.hospital_card);
         CardView consult = findViewById(R.id.consult_card);
         CardView viewPost = findViewById(R.id.viewPost_card);
         Button btnLogout = findViewById(R.id.btnLogOut);
@@ -60,10 +60,9 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        post.setOnClickListener(view -> {
-//            Intent i = new Intent(HomePage.this, PostActivity2.class);
-//            startActivity(i);
-            Toast.makeText(this, "will updated later.", Toast.LENGTH_SHORT).show();
+        hospital.setOnClickListener(view -> {
+            Intent i = new Intent(HomePage.this, HospitalListActivity.class);
+            startActivity(i);
         });
 
         profile.setOnClickListener(view -> {
@@ -71,7 +70,7 @@ public class HomePage extends AppCompatActivity {
             startActivity(i);
         });
 
-        report.setOnClickListener(view -> {
+        doctorList.setOnClickListener(view -> {
             Intent i = new Intent(HomePage.this, DoctorListActivity.class);
             startActivity(i);
         });
@@ -80,7 +79,6 @@ public class HomePage extends AppCompatActivity {
             Intent i = new Intent(HomePage.this, PostDoctorActivity.class);
             startActivity(i);
         });
-
 
 
         adminPanel.setOnClickListener(view -> {
@@ -100,21 +98,18 @@ public class HomePage extends AppCompatActivity {
                 if (role.equalsIgnoreCase("admin")) {
 
                     adminPanel.setVisibility(View.VISIBLE);
-                    post.setVisibility(View.GONE);
+                    viewPost.setVisibility(View.GONE);
+                    consult.setVisibility(View.GONE);
 
                 } else if(role.equalsIgnoreCase("Doctor")){
                     adminPanel.setVisibility(View.GONE);
-                    report.setVisibility(View.VISIBLE);
                     consult.setVisibility(View.VISIBLE);
-                    post.setVisibility(View.VISIBLE);
                     viewPost.setVisibility(View.GONE);
 
                 }
                 else if(role.equalsIgnoreCase("Patient")){
                     adminPanel.setVisibility(View.GONE);
-                    report.setVisibility(View.VISIBLE);
                     consult.setVisibility(View.GONE);
-                    post.setVisibility(View.VISIBLE);
                     viewPost.setVisibility(View.VISIBLE);
                 }
             }
@@ -155,8 +150,9 @@ public class HomePage extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.action_home:
-                Intent i = new Intent(HomePage.this, HomePage.class);
-                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(HomePage.this, DoctorListActivity.class);
+                startActivity(i1);
+                Toast.makeText(this, "Doctor List", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.action_profile:
@@ -167,9 +163,9 @@ public class HomePage extends AppCompatActivity {
 
 
             case R.id.action_report:
-                Intent i4 = new Intent(HomePage.this, ReportActivity.class);
+                Intent i4 = new Intent(HomePage.this, HospitalListActivity.class);
                 startActivity(i4);
-                Toast.makeText(this, "Report", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Hospital List", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.action_logout:
@@ -177,7 +173,7 @@ public class HomePage extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent i5 = new Intent(HomePage.this, SignInPage.class);
                 startActivity(i5);
-                Toast.makeText(this, "Loged Out", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Logged Out", Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);

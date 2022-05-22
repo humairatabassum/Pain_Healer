@@ -37,9 +37,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Medicine 1 :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -52,13 +53,40 @@
                 android:layout_weight="6"
                 android:inputType="textPersonName" />
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:layout_margin="5dp"
-                android:text="Quantity :"
+                android:text="Time period :"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <EditText
+                android:id="@+id/timePeriod1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="textPersonName"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Dose :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -67,11 +95,12 @@
                 android:id="@+id/etQuantity1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:inputType="textPersonName" />
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:inputType="numberSigned" />
+
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,6 +112,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Consumption Time:"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -119,9 +149,10 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Medicine 1 :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -134,13 +165,39 @@
                 android:layout_weight="6"
                 android:inputType="textPersonName" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Time period :"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <EditText
+                android:id="@+id/timePeriod2"
+                android:layout_width="88dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:inputType="textPersonName"
+                android:textSize="16sp" />
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:gravity="center"
-                android:layout_margin="5dp"
-                android:text="Quantity :"
+                android:text="Dose :"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -149,8 +206,11 @@
                 android:id="@+id/etQuantity2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:inputType="textPersonName" />
+                android:textSize="16sp"
+                android:layout_weight="1.5"
+                android:inputType="numberSigned" />
+
+
         </LinearLayout>
 
 
@@ -164,6 +224,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Consumption Time:"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textAlignment="textStart"
                 tools:ignore="RtlCompat" />
@@ -190,31 +251,6 @@
                 android:text="Night" />
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-<!--            <TextView-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="2"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Date &amp; Time :"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:textAlignment="textStart"-->
-<!--                tools:ignore="RtlCompat" />-->
-
-<!--            <EditText-->
-<!--                android:id="@+id/DateTime"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_weight="6"-->
-<!--                android:inputType="datetime" />-->
-
-        </LinearLayout>
-
         <LinearLayout
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -226,6 +262,7 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="Suggestion :"
+                android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 tools:ignore="RtlCompat" />
@@ -251,6 +288,7 @@
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="Test :"
+                android:textStyle="bold"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 tools:ignore="RtlCompat" />
@@ -264,6 +302,32 @@
                 android:maxLines="3" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Date &amp; Time :"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAlignment="textStart"
+                tools:ignore="RtlCompat" />
+
+            <EditText
+                android:id="@+id/DateTime"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:inputType="datetime" />
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

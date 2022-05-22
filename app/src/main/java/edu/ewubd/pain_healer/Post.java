@@ -11,12 +11,13 @@ public class Post {
     public String doctor;
     public String doctorUid;
     public String disease;
-    public String department;
+    public String gender;
+    public String isReport ;
 
     public Post() {
     }
 
-    public Post(String patientUid, String uid, String title, String details, String duration, String age, String doctor, String doctorUid, String disease, String department) {
+    public Post(String patientUid, String uid, String title, String details, String duration, String age, String doctor, String doctorUid, String disease, String gender, String isReport ) {
         this.patientUid = patientUid;
         this.uid = uid;
         this.title = title;
@@ -26,7 +27,8 @@ public class Post {
         this.doctor = doctor;
         this.doctorUid = doctorUid;
         this.disease = disease;
-        this.department = department;
+        this.gender = gender;
+        this.isReport  = isReport ;
     }
 
     public String getUid() {
@@ -94,11 +96,11 @@ public class Post {
     }
 
     public String getDepartment() {
-        return department;
+        return gender;
     }
 
     public void setDepartment(String department) {
-        this.department = department;
+        this.gender = department;
     }
 
     public String getPatientUid() {
@@ -107,5 +109,13 @@ public class Post {
 
     public void setPatientUid(String patientUid) {
         this.patientUid = patientUid;
+    }
+
+    public String getReport() {
+        return isReport ;
+    }
+
+    public void setReport(String report) {
+        this.isReport = isReport ;
     }
 }
